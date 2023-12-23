@@ -2,23 +2,25 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const Registration = () => {
-    const [formData, setFormData] = useState({
-        firstname:'',
-        lastname:'',
-        email:'',
-        mobileno:'',
-        education:'',
-        occupation:'',
-        gender:'',
-        languages:[],
-        password:'',
-        cpassword:'',
-      })
+  const emptyForm={
+  firstname:'',
+  lastname:'',
+  email:'',
+  mobileno:'',
+  education:'',
+  occupation:'',
+  gender:'',
+  languages:[],
+  password:'',
+  cpassword:'',
+}
+    const [formData, setFormData] = useState(emptyForm)
     
       const [formError, setFormError] = useState({})
       const [valid,setValid]=useState(true)
       const navigate = useNavigate()
       const onChangeHandler = (event) => {
+        event.preventDefault();
     
         console.log(event)
         if(event.target.name === 'languages'){
@@ -89,10 +91,7 @@ const Registration = () => {
       setFormError({...err})
       
       return Object.keys(err).length < 1;
-      axios.post('http://localhost:8000/users',formData)
-      .then(result => console.log(result))
-      navigate('/login')
-      .catch(err => console.log(err))
+    
     }
     
     const onSubmitHandler=(event) =>{
@@ -101,7 +100,15 @@ const Registration = () => {
       let isValid=validateForm()
       
       if(isValid){
+      axios.post('http://localhost:3001/users',formData)
+      .then(result => {
         alert('Registered Successfully')
+        
+        setFormData(emptyForm)
+        console.log(result)
+      })
+      //navigate('/login')
+      .catch(err => console.log(err))
       }else{
         alert('In Valid Form') 
       }

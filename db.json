@@ -1,3 +1,36 @@
 {
-  "users": []
-} 
+  "users": [
+    {
+      "id": "a001",
+      "firstname": "Rajesh",
+      "lastname": "Penta",
+      "email": "rajeshpenta6396@gamil.com",
+      "mobileno": "8341477629",
+      "education": "degree",
+      "occupation": "student",
+      "gender": "Male",
+      "languages": [
+        "Html",
+        "Css"
+      ],
+      "password": "123456"
+    },
+    {
+      "firstname": "Penta",
+      "lastname": "Rajesh",
+      "email": "rajeshpenta6396@gmail.com",
+      "mobileno": "+918341477629",
+      "education": "employee",
+      "occupation": "employee",
+      "gender": "male",
+      "languages": [
+        "html",
+        "css",
+        "javascript"
+      ],
+      "password": "123456",
+      "cpassword": "123456",
+      "id": "e-poc6c"
+    }
+  ]
+}
