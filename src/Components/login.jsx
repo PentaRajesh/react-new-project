@@ -41,7 +41,7 @@ const login = () => {
         </div>
         <div className="form-group">
           <button className="btn btn-primary float-end" type="submit">
-            Login
+            Login Now
           </button>
         </div>
       </form>
